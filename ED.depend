@@ -1,0 +1,102 @@
+# depslib dependency file v1.0
+1550523256 source:c:\users\yumaol\desktop\pel216\ed\fila.c
+	"Fila.h"
+
+1550523946 source:c:\users\yumaol\desktop\pel216\ed\main.c
+	<stdio.h>
+	"Questoes.h"
+
+1550521475 c:\users\yumaol\desktop\pel216\ed\fila.h
+
+1550508494 source:c:\users\yumaol\desktop\pel216\ed\lista.c
+	"Lista.h"
+	<stdlib.h>
+
+1550525977 c:\users\yumaol\desktop\pel216\ed\pilha.h
+
+1550526763 source:c:\users\yumaol\desktop\pel216\ed\pilha.c
+	"Pilha.h"
+	<stdlib.h>
+
+1550508304 c:\users\yumaol\desktop\pel216\ed\lista.h
+
+1550523671 c:\users\yumaol\desktop\pel216\ed\questoes.h
+
+1550527720 source:c:\users\yumaol\desktop\pel216\ed\questoes.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<Math.h>
+	"Fila.h"
+	"Pilha.h"
+	"Lista.h"
+	"Questoes.h"
+
+1550586508 source:c:\users\armazem\downloads\ed\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Questoes.h"
+
+1550523671 c:\users\armazem\downloads\ed\questoes.h
+
+1550523256 source:c:\users\armazem\downloads\ed\fila.c
+	"Fila.h"
+
+1550521475 c:\users\armazem\downloads\ed\fila.h
+
+1550508494 source:c:\users\armazem\downloads\ed\lista.c
+	"Lista.h"
+	<stdlib.h>
+
+1550508304 c:\users\armazem\downloads\ed\lista.h
+
+1550526763 source:c:\users\armazem\downloads\ed\pilha.c
+	"Pilha.h"
+	<stdlib.h>
+
+1550525977 c:\users\armazem\downloads\ed\pilha.h
+
+1550587906 source:c:\users\armazem\downloads\ed\questoes.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<Math.h>
+	"Fila.h"
+	"Pilha.h"
+	"Lista.h"
+	"Questoes.h"
+
+1550523256 source:c:\users\armazem\desktop\ed\fila.c
+	"Fila.h"
+
+1550521475 c:\users\armazem\desktop\ed\fila.h
+
+1550508494 source:c:\users\armazem\desktop\ed\lista.c
+	"Lista.h"
+	<stdlib.h>
+
+1550508304 c:\users\armazem\desktop\ed\lista.h
+
+1550586508 source:c:\users\armazem\desktop\ed\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Questoes.h"
+
+1550523671 c:\users\armazem\desktop\ed\questoes.h
+
+1550526763 source:c:\users\armazem\desktop\ed\pilha.c
+	"Pilha.h"
+	<stdlib.h>
+
+1550525977 c:\users\armazem\desktop\ed\pilha.h
+
+1550588050 source:c:\users\armazem\desktop\ed\questoes.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<Math.h>
+	"Fila.h"
+	"Pilha.h"
+	"Lista.h"
+	"Questoes.h"
+

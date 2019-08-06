@@ -1,0 +1,133 @@
+#include <stdio.h>
+#include "Fila.h"
+#include "Pilha.h"
+#define TAM 10
+
+struct tItemLista
+{
+    int it;
+    struct tItemLista* prox;
+    struct tItemLista* ant;
+};
+
+struct tLista
+{
+    struct tItemLista* primeiro;
+    struct tItemLista* ultimo;
+};
+
+void novaLista(struct tLista*);
+struct tItemLista* criaItemLista(int);
+void insereLista(struct tLista*, struct tItemLista*);
+void removeLista(struct tLista*, int);
+int buscaLista(struct tLista*, int);
+void mostraLista(struct tLista*);
+void mostraListaF(struct tLista*);
+void desalocaLista(struct tLista*);
+
+int main()
+{
+    int n;
+    char ch;
+    struct tLista lista;
+    novaLista(&lista);
+    while(ch=getchar())
+    {
+        if(ch=='I'){scanf("\n%d", &n); insereLista(&lista, criaItem(n));}
+        if(ch=='R'){scanf("\n%d", &n); removeLista(&lista, n);}
+        if(ch=='B'){scanf("\n%d", &n); printf("%d\n", buscaLista(&lista, n));}
+        if(ch=='M') imprimeLista(&lista);
+        //if(ch=='F') mostraListaF(&lista);
+        //if(ch=='D') desalocaLista(&lista);
+    }
+}
+
+void novaLista(struct tLista* l)
+{
+    l->primeiro=NULL;
+    l->ultimo=NULL;
+}
+struct tItemLista* criaItemLista(int x)						   // cria novo itiem para ser inserido na lista
+{
+    printf("aaa %d", x);
+    struct tItemLista* item;
+    item=(struct tItemLista*)malloc(sizeof(struct tItemLista));
+    item->it=x;                                       // chave do novo item
+    item->prox=NULL;								  // ponteiro proximo elemento
+    item->ant=NULL;									  // ponteiro elemento anterior
+    return item;
+    printf("bbb");
+}
+
+void insereLista(struct tLista* l, struct tItemLista* item)
+{
+    printf("entrou");
+    struct tItemLista* atual=l->primeiro;
+    if(l->primeiro==NULL && l->ultimo==NULL)            // Inserir em lista vazia
+    {
+        l->primeiro=l->ultimo=item;                     // O item inserido será o primeiro e último da lista.
+    }
+    else
+    {
+        while(atual!=NULL && item->it>atual->it)        // Enquanto não encontrar onde inserir ou NULL
+        {
+            atual=atual->prox;
+        }
+        if(atual==NULL)                                 // Inserir no final
+        {
+            item->ant=l->ultimo;                        // O antigo último item será o antecessor do item inserido
+            l->ultimo->prox=item;                       // O antigo último item terá como próximo o item inserido
+            l->ultimo=item;                             // O item será o último da lista
+        }
+        else if(item->it!=atual->it)                    // Inserir no início ou no meio, caso não seja repetido
+        {
+            item->ant=atual->ant;
+            if(item->ant==NULL) l->primeiro=item;       // Se estiver no início, o item será o primeiro da lista
+            else atual->ant->prox=item;                 // Se não estiver no início, ele será o próximo de seu anterior
+            atual->ant=item;
+            item->prox=atual;
+        }
+    }
+    printf("saiu");
+}
+
+void removeLista(struct tLista* l, int n)
+{
+    struct tItemLista* atual=l->primeiro;
+    if(l->primeiro!=NULL && l->ultimo!=NULL)                       // Remover apenas se a lista não estiver vazia.
+    {
+        while(atual!=NULL && atual->it!=n)                         // Enquanto não encontrar o item ou NULL
+        {
+            atual=atual->prox;
+        }
+        if(atual!=NULL)                                            // Apenas se encontrou o item a ser removido
+        {
+            if(atual->ant==NULL) l->primeiro=atual->prox;          // Se for o primeiro da lista, seu próximo se tornará o primeiro.
+            else atual->ant->prox=atual->prox;
+            if(atual->prox==NULL) l->ultimo=atual->ant;            // Se for o último da lista, seu anterior se tornará o último.
+            else atual->prox->ant=atual->ant;
+            free(atual);                                           // Desalocar item removido.
+        }
+    }
+}
+
+int buscaLista(struct tLista* lista, int x)
+{
+    int j; struct tItemLista* i;
+    for(i=lista->primeiro, j=0; i!=NULL; i=i->prox, j++) // percorre lista, iniciando do primeiro item, e seguindo pelo ponteiro prox. Indice j é o indice do item atual
+    {
+        if(i->it==x) return j; 							 // se item encontrado, retornar indice
+    }
+    return -1;
+}
+
+void imprimeLista(struct tLista* lista)
+{
+    struct tItemLista* i;
+    for(i=lista->primeiro; i!=NULL; i=i->prox)  // percorre lista, iniciando do primeiro item, e seguindo pelo ponteiro prox
+    {
+        printf("%d ", i->it);					// imprime chave do item atual
+    }
+    printf("\n");
+}
+
